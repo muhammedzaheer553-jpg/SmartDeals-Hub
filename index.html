@@ -9,7 +9,7 @@
 <meta property="og:description" content="Discover Smart Deals. Shop Smarter.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0b1f3a">
-<meta name="robots" content="noindex">
+<meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:site_name" content="SmartDeals Hub">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b1f3a'/%3E%3Cpath d='M28 62l16-16 12 12 18-22' stroke='%23ff7a00' stroke-width='10' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
@@ -239,8 +239,28 @@ table.cmp{border-collapse:collapse;width:100%;min-width:640px}
 .cf select{padding:12px;border:1px solid var(--bd);border-radius:10px;font:inherit;width:100%;background:#fff}
 .page a:not(.btn){color:var(--or2);text-decoration:underline}
 
+/* ===== v5: dark mode, back to top, affiliate note ===== */
+.themebtn{background:none;border:1px solid #ffffff55;color:#fff;border-radius:10px;width:40px;height:40px;font-size:1.1rem}.themebtn:hover{background:var(--navy2)}
+.totop{position:fixed;right:18px;bottom:84px;width:44px;height:44px;border-radius:50%;border:0;background:var(--navy);color:#fff;font-size:1.3rem;box-shadow:0 6px 16px rgba(0,0,0,.3);z-index:39;display:grid;place-items:center}.totop[hidden]{display:none}
+.aff{font-size:.7rem;color:var(--mu);text-align:center}
+@media(max-width:860px){.themebtn{margin-left:auto}.burger{margin-left:0}.totop{bottom:150px}}
+[data-theme=dark]{--bg:#0f1727;--soft:#16213a;--tx:#e6ebf5;--mu:#9fb0cc;--bd:#26344f;color-scheme:dark}
+[data-theme=dark] body{background:var(--bg)}
+[data-theme=dark] .card,[data-theme=dark] .cat-t,[data-theme=dark] .chip,[data-theme=dark] .trust,[data-theme=dark] .al li,[data-theme=dark] .bnav,[data-theme=dark] .tw,[data-theme=dark] .thumbs button,[data-theme=dark] .ddl{background:#16213a;color:var(--tx)}
+[data-theme=dark] h2,[data-theme=dark] .cb h3,[data-theme=dark] .pi h1,[data-theme=dark] .page h1,[data-theme=dark] .trust-in b,[data-theme=dark] .cmp th,[data-theme=dark] .fav.lbl{color:#fff}
+[data-theme=dark] .fl input,[data-theme=dark] .fl select,[data-theme=dark] .cf input,[data-theme=dark] .cf textarea,[data-theme=dark] .cf select{background:#16213a;color:var(--tx);border-color:var(--bd)}
+[data-theme=dark] .page p,[data-theme=dark] .page li{color:var(--tx)}
+[data-theme=dark] .sec.alt{background:linear-gradient(#111b30,#0f1727)}
+[data-theme=dark] .note,[data-theme=dark] .prevbar{background:#2a2216;color:#ffd9b0}
+[data-theme=dark] .cmp td.best{background:#12351f}
+[data-theme=dark] .imgw{background:#1c2a46;animation:none}
+[data-theme=dark] .chip.on{background:var(--or);border-color:var(--or)}
+[data-theme=dark] .ddl a:hover{background:#1d2c4b}
+@media(min-width:861px){.search{max-width:280px}.bar{gap:12px}.nav>a,.dd>a{padding:8px 9px}}
+@media(min-width:861px) and (max-width:1150px){.search{max-width:170px;min-width:120px}.nav>a,.dd>a{font-size:.85rem;padding:8px 6px}.hicons a{padding:8px 5px}.logo{font-size:1.1rem}.bar{gap:8px}}
+
 </style>
-<!--SEO--><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"SmartDeals Hub","description":"Amazon affiliate deals discovery website"}</script><!--/SEO-->
+<!--SEO--><link rel="canonical" href="https://muhammedzaheer553-jpg.github.io/SmartDeals-Hub/"><meta property="og:url" content="https://muhammedzaheer553-jpg.github.io/SmartDeals-Hub/"><meta property="og:image" content="https://muhammedzaheer553-jpg.github.io/SmartDeals-Hub/assets/og-image.png"><meta name="twitter:image" content="https://muhammedzaheer553-jpg.github.io/SmartDeals-Hub/assets/og-image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"SmartDeals Hub","url":"https://muhammedzaheer553-jpg.github.io/SmartDeals-Hub/"}</script><!--/SEO-->
 </head>
 <body>
 <a class="skip" href="#app">Skip to content</a>
@@ -249,6 +269,7 @@ table.cmp{border-collapse:collapse;width:100%;min-width:640px}
     <a class="logo" href="#/home" aria-label="SmartDeals Hub home"><span class="mark">S</span><span>SmartDeals <b>Hub</b></span></a>
     <form id="navSearch" class="search" role="search"><input id="navQ" type="search" list="sugg" placeholder="Search products or brands" aria-label="Search products or brands"><button aria-label="Search">&#128269;</button></form>
     <div class="hicons"><a href="#/favourites" aria-label="Favourites" title="Favourites">&#9825;<i class="cnt" data-n="fav"></i></a><a href="#/compare" aria-label="Compare" title="Compare">&#8644;<i class="cnt" data-n="cmp"></i></a><a href="#/alerts" aria-label="Deal alerts" title="Deal alerts">&#128276;<i class="cnt" data-n="alert"></i></a></div>
+    <button id="theme" class="themebtn" aria-label="Switch dark or light mode" title="Dark / light mode">&#127769;</button>
     <button id="burger" class="burger" aria-label="Menu" aria-expanded="false">&#9776;</button>
     <nav id="nav" class="nav">
       <a href="#/home">Home</a>
@@ -275,8 +296,9 @@ table.cmp{border-collapse:collapse;width:100%;min-width:640px}
 <div id="cmpBar" class="cmpbar" aria-live="polite"></div>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <datalist id="sugg"></datalist>
+<button id="toTop" class="totop" aria-label="Back to top" hidden>&#8593;</button>
 <nav class="bnav" aria-label="Quick navigation"><a href="#/home" data-r="home"><span>&#127968;</span>Home</a><a href="#/shop" data-r="shop"><span>&#128717;</span>Shop</a><a href="#/favourites" data-r="favourites"><span>&#9825;</span>Saved<i class="cnt" data-n="fav"></i></a><a href="#/compare" data-r="compare"><span>&#8644;</span>Compare<i class="cnt" data-n="cmp"></i></a><a href="#/alerts" data-r="alerts"><span>&#128276;</span>Alerts<i class="cnt" data-n="alert"></i></a></nav>
-<noscript><!--NS--><p style="padding:2rem">Please enable JavaScript to browse deals.</p><!--/NS--></noscript>
+<noscript><!--NS--><div style="padding:2rem"><p>Please enable JavaScript to browse deals.</p></div><!--/NS--></noscript>
 <script>
 /* =====================================================================
    SMARTDEALS HUB - PRODUCT DATA FILE  (edit THIS file to manage products)
@@ -302,6 +324,7 @@ table.cmp{border-collapse:collapse;width:100%;min-width:640px}
    featured      true / false
    trending      true / false
    added         date added, "YYYY-MM-DD" (drives "Recently added")
+   asin          optional Amazon ASIN (10 characters). If "url" is empty, the site links to amazon.in/dp/ASIN (and adds your tag once Associates is approved)
    checked       date you last verified the price on Amazon, "YYYY-MM-DD" (shown on the product page)
    images        optional list of extra image URLs for the product page gallery
    flash         true = shows in Flash Deals. Optional "dealEnds": "2026-12-31T18:00:00Z" shows a real
@@ -321,13 +344,17 @@ const SITE = {
   associateTag: "",                // e.g. "yourtag-21" (used only for fallback search links)
   currency: "INR",
   locale: "en-IN",
-  email: "contact@example.com",   // CHANGE to your real email
-  url: "",                         // your live site, e.g. "https://yourname.github.io/smartdeals/" (needed for SEO + sharing)
+  email: "muhammedzaheer553@gmail.com",   // contact email shown on the Contact page
+  url: "https://muhammedzaheer553-jpg.github.io/SmartDeals-Hub/", // your live site, e.g. "https://yourname.github.io/smartdeals/" (needed for SEO + sharing)
   associatesApproved: false,       // set true ONLY after Amazon approves your Associates account
   formEndpoint: "",                // newsletter / alerts form URL (e.g. Formspree). Empty = newsletter is hidden
   contactEndpoint: "",             // contact form URL. Empty = the form opens the visitor's email app
-  showPrices: true,                // false = hide every price and discount (see Amazon price rules in the notes)
-  showDemoProducts: false          // demo products hide automatically once a real product exists; true keeps them
+  showPrices: false,               // false = hide every price and discount (safe until you have verified, permitted price data)
+  showDemoProducts: false,         // demo products hide automatically once a real product exists; true keeps them
+  gaId: "",                        // Google Analytics 4 ID, e.g. "G-XXXXXXXXXX". Empty = no analytics
+  googleVerification: "",          // Search Console HTML-tag code (only the content value). Empty = none
+  supabaseUrl: "",                 // e.g. "https://abcdxyz.supabase.co". Empty = products come from this file only
+  supabaseAnonKey: ""              // the PUBLIC anon / publishable key from Supabase (never the service_role key)
 };
 
 const CATEGORIES = [
@@ -390,12 +417,21 @@ const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": 
 const money = n => new Intl.NumberFormat(SITE.locale, { style: "currency", currency: SITE.currency, maximumFractionDigits: 0 }).format(n);
 const disc = p => (SITE.showPrices !== false && p.originalPrice > p.price ? Math.round((1 - p.price / p.originalPrice) * 100) : 0);
 const enc = encodeURIComponent, app = $("#app");
-/* demo products hide automatically once at least one real product exists */
-if (!SITE.showDemoProducts && PRODUCTS.some(p => !p.sample)) for (let i = PRODUCTS.length - 1; i >= 0; i--) if (PRODUCTS[i].sample) PRODUCTS.splice(i, 1);
-const PREVIEW = PRODUCTS.length > 0 && PRODUCTS.every(p => p.sample), SP = SITE.showPrices !== false;
 const store = { get(k, d) { try { const v = JSON.parse(localStorage.getItem(k)); return v ?? d; } catch (_) { return d; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (_) {} } };
+const SP = SITE.showPrices !== false; let PREVIEW = false;
+const cloudOn = () => /^https:\/\/[\w-]+\.supabase\.co$/.test(SITE.supabaseUrl || "") && !!SITE.supabaseAnonKey;
+const fileCatalog = PRODUCTS.slice();
+/* The catalogue is products.js, or your Supabase table when connected. Demo products hide once a real one exists. */
+function setCatalog(list) {
+  PRODUCTS.splice(0, PRODUCTS.length, ...list);
+  if (!SITE.showDemoProducts && PRODUCTS.some(p => !p.sample)) for (let i = PRODUCTS.length - 1; i >= 0; i--) if (PRODUCTS[i].sample) PRODUCTS.splice(i, 1);
+  PREVIEW = PRODUCTS.length > 0 && PRODUCTS.every(p => p.sample);
+}
+const cached = cloudOn() ? store.get("sdh_cloud", []) : [];
+setCatalog(cached.length ? cached : fileCatalog);
 const byId = id => PRODUCTS.find(p => String(p.id) === String(id));
 let favs = store.get("sdh_fav", []).filter(byId), cmp = store.get("sdh_cmp", []).filter(byId).slice(0, 3), pendingQ = "", page = "home", timer, tt, curGal = [];
+const rvIds = () => store.get("sdh_rv", []).filter(byId), rvList = ex => rvIds().filter(id => String(id) !== String(ex)).map(byId);
 const assoc = () => !!SITE.associatesApproved;
 const root = () => (SITE.url ? SITE.url.replace(/\/?$/, "/") : location.href.split("#")[0]);
 const pageUrl = p => root() + "#/product/" + enc(p.id);
@@ -411,15 +447,17 @@ document.addEventListener("error", e => { const t = e.target; if (t.tagName === 
 document.addEventListener("load", e => { if (e.target.tagName === "IMG") e.target.classList.add("ok"); }, true);
 
 /* ---------- links ---------- */
-const link = p => p.url || `https://${SITE.amazonDomain}/s?k=${enc(p.name)}` + (assoc() && SITE.associateTag ? `&tag=${enc(SITE.associateTag)}` : "");
-const rel = p => (assoc() && p.url ? "sponsored " : "") + "nofollow noopener noreferrer";
+const link = p => p.url || (p.asin ? `https://${SITE.amazonDomain}/dp/${enc(p.asin)}` + (assoc() && SITE.associateTag ? `?tag=${enc(SITE.associateTag)}` : "") : `https://${SITE.amazonDomain}/s?k=${enc(p.name)}` + (assoc() && SITE.associateTag ? `&tag=${enc(SITE.associateTag)}` : ""));
+const aff = p => assoc() && !!(p.url || (p.asin && SITE.associateTag));
+const rel = p => (aff(p) ? "sponsored " : "") + "nofollow noopener noreferrer";
 const wa = p => "https://wa.me/?text=" + enc(`${p.name}\n${p.description}\n${pageUrl(p)}`);
-const buy = (p, c = "btn") => `<a class="${c}" href="${esc(link(p))}" target="_blank" rel="${rel(p)}">Check Price on Amazon</a>`;
-const waBtn = (p, c) => `<a class="${c}" href="${esc(wa(p))}" target="_blank" rel="noopener noreferrer" aria-label="Share ${esc(p.name)} on WhatsApp" title="Share on WhatsApp">&#128172;${c === "btn wa2" ? " Share on WhatsApp" : ""}</a>`;
+const buy = (p, c = "btn") => `<a class="${c}" href="${esc(link(p))}" target="_blank" rel="${rel(p)}" data-track="amazon" data-pid="${esc(p.id)}">Check Price on Amazon</a>`;
+const waBtn = (p, c) => `<a class="${c}" href="${esc(wa(p))}" target="_blank" rel="noopener noreferrer" data-track="whatsapp" data-pid="${esc(p.id)}" aria-label="Share ${esc(p.name)} on WhatsApp" title="Share on WhatsApp">&#128172;${c === "btn wa2" ? " Share on WhatsApp" : ""}</a>`;
 const live = p => !(p.dealEnds && Date.parse(p.dealEnds) < Date.now());
 const endsIn = p => { const t = Date.parse(p.dealEnds); if (!t || t < Date.now()) return ""; const m = Math.floor((t - Date.now()) / 6e4), d = Math.floor(m / 1440), h = Math.floor(m % 1440 / 60); return d ? `${d}d ${h}h left` : `${h}h ${m % 60}m left`; };
-const assocLine = () => assoc() ? "As an Amazon Associate we earn from qualifying purchases. SmartDeals Hub is not owned or operated by Amazon."
-  : "SmartDeals Hub is an independent website and is not owned or operated by Amazon. Product links lead to Amazon. We do not currently earn commissions from them.";
+const assocLine = () => assoc()
+  ? "As an Amazon Associate I earn from qualifying purchases."
+  : "SmartDeals Hub is not currently approved for the Amazon Associates Program. We do not earn commissions from Amazon links.";
 
 /* ---------- SEO ---------- */
 function setMeta(key, val, prop) { const sel = prop ? `meta[property="${key}"]` : `meta[name="${key}"]`; let e = $(sel); if (!e) { e = document.createElement("meta"); e.setAttribute(prop ? "property" : "name", key); document.head.appendChild(e); } e.content = val; }
@@ -439,7 +477,7 @@ function card(p) {
   <p class="desc">${esc(p.description)}</p><ul>${(p.features || []).slice(0, 3).map(x => `<li>${esc(x)}</li>`).join("")}</ul>
   <div class="rr"><span class="rate" title="Amazon rating">★ ${Number(p.rating).toFixed(1)}</span><label class="cmpl"><input type="checkbox" data-cmp="${esc(p.id)}"${cmp.includes(p.id) ? " checked" : ""}> Compare</label></div>
   ${priceBlock(p, d)}
-  <div class="act">${buy(p)}${waBtn(p, "wa")}</div></div></article>`;
+  <div class="act">${buy(p)}${waBtn(p, "wa")}</div>${aff(p) ? '<p class="aff">Affiliate link</p>' : ""}</div></article>`;
 }
 const grid = l => l.length ? `<div class="grid">${l.map(card).join("")}</div>` : `<div class="empty"><h3>No products found</h3><p>Try a different search or clear the filters.</p></div>`;
 const byDisc = (a, b) => disc(b) - disc(a);
@@ -481,7 +519,7 @@ let tx = 0;
 document.addEventListener("touchstart", e => { if (e.target.closest(".big")) tx = e.touches[0].clientX; }, { passive: true });
 document.addEventListener("touchend", e => { if (e.target.closest(".big") && tx) { const d = e.changedTouches[0].clientX - tx; if (Math.abs(d) > 45) showImg(+$(".big").dataset.i + (d < 0 ? 1 : -1)); tx = 0; } }, { passive: true });
 document.addEventListener("click", e => {
-  const t = e.target; let b;
+  const t = e.target; let b; const ta = t.closest("[data-track]"); if (ta && window.gtag) gtag("event", ta.dataset.track === "amazon" ? "affiliate_click" : "whatsapp_share", { product_id: ta.dataset.pid });
   if ((b = t.closest("[data-fav]"))) { const p = byId(b.dataset.fav), on = !favs.includes(p.id); favs = on ? [...favs, p.id] : favs.filter(x => x !== p.id); store.set("sdh_fav", favs); sync(); toast(on ? "Saved to favourites" : "Removed from favourites"); if (page === "favourites") route(); }
   else if ((b = t.closest("button[data-cmp]"))) setCmp(b.dataset.cmp, !cmp.includes(byId(b.dataset.cmp).id));
   else if ((b = t.closest("[data-rm]"))) setCmp(b.dataset.rm, false);
@@ -523,7 +561,7 @@ function home() {
   <section class="trust"><div class="wrap trust-in"><div><b>&#10003; Hand-picked</b><span>Curated product picks</span></div><div><b>&#128274; Buy on Amazon</b><span>Secure checkout by Amazon</span></div><div><b>&#128172; Share instantly</b><span>One-tap WhatsApp sharing</span></div><div><b>&#9889; Fast &amp; free</b><span>No sign-up needed</span></div></div></section>
   ` + cats + section("⚡ Flash Deals", L.flash().slice(0, 4), "#/best", 1) + section("Featured products", PRODUCTS.filter(p => p.featured).slice(0, 4), "#/shop/feat")
     + section("Trending products", PRODUCTS.filter(p => p.trending).slice(0, 4), "#/trending", 1) + section("Editor's Choice", L.editors().slice(0, 4), "#/editors")
-    + section("Top Rated", L.top().slice(0, 4), "#/top-rated", 1) + section("Latest Products", L.latest().slice(0, 4), "#/latest") + newsletter();
+    + section("Top Rated", L.top().slice(0, 4), "#/top-rated", 1) + section("Latest Products", L.latest().slice(0, 4), "#/latest") + section("Recently viewed", rvList().slice(0, 4), "", 1) + newsletter();
 }
 const F = {};
 function shop(arg) {
@@ -564,7 +602,7 @@ function shop(arg) {
 function product(id) {
   const p = byId(decodeURIComponent(id));
   if (!p) return `<div class="wrap page"><h1>Product not found</h1><p>This product may have been removed.</p><a class="btn" href="#/shop">Browse products</a></div>`;
-  seo(`${p.name} by ${p.brand} | SmartDeals Hub`, p.description); curGal = gal(p).slice(0, 8);
+  seo(`${p.name} by ${p.brand} | SmartDeals Hub`, p.description); curGal = gal(p).slice(0, 8); store.set("sdh_rv", [p.id, ...rvIds().filter(x => x !== p.id)].slice(0, 8));
   const d = disc(p), gl = curGal, more = PRODUCTS.filter(x => x.category === p.category && x.id !== p.id).slice(0, 4), e = p.flash ? endsIn(p) : "";
   return `<section class="sec"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="#/home">Home</a> › <a href="#/shop/${enc(p.category)}">${esc(p.category)}</a> › <span>${esc(p.name)}</span></nav>
   <div class="pd"><div><div class="imgw big" data-i="0">${im(p, 0, true)}${gl.length > 1 ? `<button class="gnav prev" data-g="-1" aria-label="Previous image">‹</button><button class="gnav next" data-g="1" aria-label="Next image">›</button>` : ""}</div>${gl.length > 1 ? `<div class="thumbs">${gl.map((s, i) => `<button data-thumb="${i}" class="${i ? "" : "on"}" aria-label="Show image ${i + 1}"><img class="pimg" src="${esc(s)}" alt="" data-pid="${esc(p.id)}" loading="lazy" width="72" height="72"></button>`).join("")}</div>` : ""}</div>
@@ -573,7 +611,7 @@ function product(id) {
   ${SP ? `<div class="pp"><b>${money(p.price)}</b>${d ? `<s>${money(p.originalPrice)}</s><em>-${d}%</em>` : ""}</div>${p.checked ? `<p class="small">Price last checked: ${esc(p.checked)}. Prices change; confirm on Amazon.</p>` : ""}` : `<p><b>Price:</b> see the current price on Amazon.</p>`}<p>${esc(p.description)}</p>
   <h2 style="font-size:1.1rem;margin-top:16px">Key features</h2><ul class="feat">${(p.features || []).map(x => `<li>${esc(x)}</li>`).join("")}</ul>
   <div class="pbtn">${buy(p, "btn lg")}${waBtn(p, "btn wa2")}<button class="fav lbl" data-fav="${esc(p.id)}">♡ Save</button><button class="btn ghost" data-cmp="${esc(p.id)}">⇄ Compare</button><button class="btn ghost" data-copy="${esc(pageUrl(p))}">Copy link</button></div>
-  <p class="small">Price and availability are set by Amazon and can change. Always confirm the final price on Amazon before buying. ${assocLine()}</p></div></div></div></section>${section("More in " + esc(p.category), more, "#/shop/" + enc(p.category), 1)}`;
+  <p class="small">Price and availability are set by Amazon and can change. Always confirm the final price on Amazon before buying. ${assocLine()}</p></div></div></div></section>${section("More in " + esc(p.category), more, "#/shop/" + enc(p.category), 1)}${section("Recently viewed", rvList(p.id).slice(0, 4))}`;
 }
 function comparePage() {
   const l = cmp.map(byId).filter(Boolean);
@@ -595,24 +633,31 @@ function alertsPage() {
   </div></section>${SITE.formEndpoint ? `<section class="sec alt"><div class="wrap"><div class="news"><h2>Email deal alerts</h2><p>Get new deals by email.</p>${mailBox()}</div></div></section>` : ""}`;
 }
 
+const MAIL_OK = !!SITE.email && !/example\.com$/i.test(SITE.email), CONTACT_OK = MAIL_OK || !!SITE.contactEndpoint;
 const P = t => `<div class="wrap page">${t}</div>`;
 const PAGES = {
   about: P(`<h1>About SmartDeals Hub</h1><p>SmartDeals Hub is a deals discovery website. We highlight interesting products on Amazon so you can compare and decide faster.</p><p>We are not a store. We do not sell, ship or process payments. When you click <b>Check Price on Amazon</b>, you go to Amazon to see the current price and buy.</p><div class="note">SmartDeals Hub is an independent website. It is not owned or operated by Amazon.</div>`),
-  contact: P(`<h1>Contact us</h1><p>Questions, corrections, product suggestions or business enquiries? Use the form${SITE.email ? ` or email <a href="mailto:${esc(SITE.email)}"><b>${esc(SITE.email)}</b></a>` : ""}.</p>
+  contact: P(`<h1>Contact us</h1><p>Questions, corrections, product suggestions or business enquiries? Use the form${MAIL_OK ? ` or email <a href="mailto:${esc(SITE.email)}"><b>${esc(SITE.email)}</b></a>` : ""}.</p>
   <form id="cf" class="cf" novalidate><input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
   <select id="cs" aria-label="Topic"><option>General question</option><option>Product or price correction</option><option>Business or partnership</option><option>Privacy request</option></select>
   <input id="cn" placeholder="Your name" aria-label="Name" autocomplete="name" required><input id="ce" type="email" placeholder="Your email" aria-label="Email" autocomplete="email" required>
   <textarea id="cm" rows="6" placeholder="Your message" aria-label="Message" required></textarea><button class="btn">Send message</button></form><p class="msg" id="cfm" role="status" style="color:#b45a00"></p>
   <p class="small">${SITE.contactEndpoint ? "Your message is sent through our form provider." : "This form opens your email app with the message ready to send."} We do not sell or ship products, so questions about orders, delivery or returns must go to Amazon.</p>`),
-  privacy: P(`<h1>Privacy policy</h1><p>We respect your privacy. This site does not require an account and does not collect payment details.</p><h2>Information we collect</h2><p>If you subscribe to updates or contact us, we receive the details you provide, such as your name and email. Standard server logs may record technical data like IP address and browser type.</p><h2>Third parties</h2><p>Links to Amazon and WhatsApp take you to websites with their own privacy policies. Amazon sets its own cookies when you visit it.</p><h2>Saved on your device</h2><p>Favourites, comparison lists and deal-alert history are stored in your browser (localStorage) and are not sent to us.</p><h2>Your choices</h2><p>You can ask us to delete your information at any time through the contact page.</p><div class="note">Template text. Review it and adapt it to your location and the tools you use (analytics, email service) before publishing.</div>`),
+  privacy: P(`<h1>Privacy policy</h1><p>We respect your privacy. This site does not require an account and does not collect payment details.</p><h2>Information we collect</h2><p>If you subscribe to updates or contact us, we receive the details you provide, such as your name and email. Standard server logs may record technical data like IP address and browser type.</p><h2>Third parties</h2><p>Links to Amazon and WhatsApp take you to websites with their own privacy policies. Amazon sets its own cookies when you visit it.</p>${SITE.gaId ? "<h2>Analytics</h2><p>We use Google Analytics to count visits and clicks on product buttons. It may set cookies and receives anonymised usage data. See Google's privacy policy for details.</p>" : ""}<h2>Saved on your device</h2><p>Favourites, comparison lists and deal-alert history are stored in your browser (localStorage) and are not sent to us.</p><h2>Your choices</h2><p>You can ask us to delete your information at any time through the contact page.</p><div class="note">Template text. Review it and adapt it to your location and the tools you use (analytics, email service) before publishing.</div>`),
   terms: P(`<h1>Terms and conditions</h1><p>By using SmartDeals Hub you agree to these terms.</p><h2>Use of the site</h2><p>Content is provided for general information. You agree not to misuse the site or copy it without permission.</p><h2>Prices and availability</h2><p>Prices, ratings and availability change on Amazon without notice. Always confirm details on Amazon before buying.</p><h2>Liability</h2><p>We are not responsible for purchases made on Amazon or other sites, or for losses from relying on information here.</p><div class="note">Template text. Have it reviewed for your jurisdiction before publishing.</div>`),
   disclaimer: P(`<h1>Disclaimer</h1><p>Information on this site is for general guidance only. Prices, discounts, ratings and stock shown here may be out of date. The final price and details are always those shown on Amazon at the time of purchase.</p>${SP ? "<p>Product prices and availability are accurate as of the date and time indicated and are subject to change. The price shown on Amazon at the time of purchase applies to the purchase.</p>" : ""}<p>Products marked <b>DEMO</b> are sample entries for preview. They are not real offers.</p><p>We do not guarantee the quality of any product listed, and this site is not a substitute for your own research.</p>`)
 };
 
-PAGES.disclosure = P(`<h1>Affiliate disclosure</h1>` + (assoc()
-  ? `<p>SmartDeals Hub participates in the Amazon Associates Program, an affiliate advertising program that lets sites earn fees by linking to Amazon.</p><p><b>As an Amazon Associate we earn from qualifying purchases.</b> If you buy through our links, we may earn a commission at no extra cost to you.</p>`
-  : `<p>SmartDeals Hub is an independent deals website. It has not yet been approved for the Amazon Associates Program, so links to Amazon are ordinary links and we earn nothing from them.</p><p>If we join an affiliate program in future, we will update this page and disclose it clearly before using affiliate links.</p>`)
-  + `<p>SmartDeals Hub is not owned or operated by Amazon. Amazon and the Amazon logo are trademarks of Amazon.com, Inc. or its affiliates. Product links open Amazon in a new tab.</p><div class="note">Products labelled DEMO are samples, not real offers.</div>`);
+PAGES.disclosure = P(`<h1>Affiliate Disclosure</h1>
+<p>SmartDeals Hub is an independent product discovery website. We are not owned or operated by Amazon.</p>
+${assoc()
+  ? `<p><strong>As an Amazon Associate I earn from qualifying purchases.</strong></p>
+     <p>Some links on this website are affiliate links. If you purchase through these links, we may earn a commission at no additional cost to you.</p>`
+  : `<p>SmartDeals Hub is not currently approved for the Amazon Associates Program. We do not earn commissions from Amazon links.</p>`
+}
+<p>Amazon sets product prices, availability and delivery terms. Always check the final details on Amazon before purchasing.</p>
+<p>Products marked DEMO are demonstration samples and are not real offers.</p>`);
+if (!CONTACT_OK) PAGES.contact = P(`<h1>Contact us</h1><p>Our contact form is being set up. Please check back soon.</p>`);
 const TITLES = { home: "Home", shop: "Shop", trending: "Trending Deals", best: "Best Deals", latest: "Latest Products", editors: "Editor's Choice", "top-rated": "Top Rated", favourites: "My Favourites", compare: "Compare Products", alerts: "Deal Alerts", product: "Product", about: "About Us", contact: "Contact Us", privacy: "Privacy Policy", terms: "Terms and Conditions", disclosure: "Affiliate Disclosure", disclaimer: "Disclaimer" };
 
 /* ---------- router ---------- */
@@ -626,9 +671,9 @@ function route() {
   app.innerHTML = `<div class="loader"><div class="spin" aria-label="Loading"></div></div>`; sync();
   clearTimeout(timer);
   timer = setTimeout(() => {
-    const V = { home, trending: () => listPage("Trending deals", PRODUCTS.filter(p => p.trending)), best: () => listPage("Best deals, biggest discounts first", [...PRODUCTS].sort(byDisc)), latest: () => listPage("Latest products", L.latest()), editors: () => listPage("Editor's Choice", L.editors()), "top-rated": () => listPage("Top rated", L.top()), favourites: favPage, compare: comparePage, alerts: alertsPage, product: () => product(arg) };
+    const V = { home, trending: () => listPage("Trending deals", PRODUCTS.filter(p => p.trending)), best: () => listPage(SP ? "Best deals, biggest discounts first" : "Best deals", SP ? [...PRODUCTS].sort(byDisc) : L.top()), latest: () => listPage("Latest products", L.latest()), editors: () => listPage("Editor's Choice", L.editors()), "top-rated": () => listPage("Top rated", L.top()), favourites: favPage, compare: comparePage, alerts: alertsPage, product: () => product(arg) };
     if (page === "shop") shop(arg); else app.innerHTML = V[page] ? V[page]() : PAGES[page];
-    sync(); window.scrollTo(0, 0);
+    sync(); window.scrollTo(0, 0); if (window.gtag) gtag("event", "page_view", { page_title: document.title, page_location: location.href });
   }, 120);
 }
 
@@ -638,16 +683,47 @@ $("#sugg").innerHTML = [...new Set(PRODUCTS.flatMap(p => [p.name, p.brand]))].ma
 $("#burger").onclick = () => { const o = $("#nav").classList.toggle("open"); $("#burger").setAttribute("aria-expanded", o); };
 $("#navSearch").onsubmit = e => { e.preventDefault(); pendingQ = $("#navQ").value.trim(); location.hash === "#/shop" ? route() : (location.hash = "#/shop"); };
 $("#waFloat").href = "https://wa.me/?text=" + enc("Check out SmartDeals Hub for great deals: " + root());
-$("#legalLine").innerHTML = `<p>${assocLine()} Prices and availability are set by Amazon and may change. See our <a class="x" style="display:inline;text-decoration:underline" href="#/disclosure">affiliate disclosure</a>.</p><p>&copy; ${new Date().getFullYear()} SmartDeals Hub</p>`;
-if (PREVIEW) { const b = $("#previewBar"); b.hidden = false; b.innerHTML = "<b>Preview mode:</b> every product here is a demonstration sample. Prices and ratings are not real. Add real products to go live."; }
+$("#legalLine").innerHTML = `<p>${assocLine()} SmartDeals Hub is not owned or operated by Amazon. Prices and availability are set by Amazon and may change. See our <a class="x" style="display:inline;text-decoration:underline" href="#/disclosure">affiliate disclosure</a>.</p><p>&copy; ${new Date().getFullYear()} SmartDeals Hub</p>`;
+previewUI();
 $("#discBar").innerHTML = assocLine() + ' <a href="#/disclosure">Affiliate disclosure</a>';
-if (!store.get("sdh_seen", null)) markSeen();
+if (!cloudOn() && !store.get("sdh_seen", null)) markSeen();
 if (getComputedStyle($(".hdr")).position !== "sticky") {
   const b = document.createElement("div"); b.style.cssText = "background:#b00020;color:#fff;padding:10px;text-align:center;font:14px sans-serif";
   b.textContent = "Styles did not load: keep index.html, style.css, script.js and products.js in the SAME folder, or use smartdeals-hub-all-in-one.html."; document.body.prepend(b);
 }
+const tb = $("#theme"), setTheme = d => { document.documentElement.dataset.theme = d ? "dark" : "light"; tb.textContent = d ? "☀️" : "🌙"; tb.setAttribute("aria-pressed", d); };
+setTheme(store.get("sdh_theme", null) === "dark");
+tb.onclick = () => { const d = document.documentElement.dataset.theme !== "dark"; setTheme(d); store.set("sdh_theme", d ? "dark" : "light"); };
+const up = $("#toTop"); window.addEventListener("scroll", () => { up.hidden = window.scrollY < 600; }, { passive: true }); up.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
+if (/^G-[A-Z0-9]+$/i.test(SITE.gaId || "")) {
+  const g = document.createElement("script"); g.async = true; g.src = "https://www.googletagmanager.com/gtag/js?id=" + SITE.gaId; document.head.appendChild(g);
+  window.dataLayer = window.dataLayer || []; window.gtag = function () { dataLayer.push(arguments); }; gtag("js", new Date()); gtag("config", SITE.gaId, { anonymize_ip: true, send_page_view: false });
+}
+function previewUI() {
+  const b = $("#previewBar"); b.hidden = !PREVIEW;
+  if (PREVIEW) b.innerHTML = "<b>Preview mode:</b> every product here is a demonstration sample. Prices and ratings are not real. Add real products to go live.";
+  setMeta("robots", PREVIEW ? "noindex,follow" : "index,follow,max-image-preview:large"); /* demo-only site stays out of Google */
+}
+function refresh() {
+  favs = favs.filter(byId); cmp = cmp.filter(byId).slice(0, 3);
+  $("#sugg").innerHTML = [...new Set(PRODUCTS.flatMap(p => [p.name, p.brand]))].map(v => `<option value="${esc(v)}">`).join("");
+  previewUI(); route();
+}
+async function loadCloud(first) {
+  let changed = false;
+  try {
+    const ctrl = new AbortController(), to = setTimeout(() => ctrl.abort(), 6000);
+    const r = await fetch(`${SITE.supabaseUrl}/rest/v1/products?select=data`, { headers: { apikey: SITE.supabaseAnonKey }, signal: ctrl.signal }); clearTimeout(to);
+    if (!r.ok) throw new Error(r.status);
+    const rows = (await r.json()).map(x => x.data).filter(p => p && p.id != null && p.name), before = JSON.stringify(PRODUCTS);
+    store.set("sdh_cloud", rows); setCatalog(rows.length ? rows : fileCatalog); changed = JSON.stringify(PRODUCTS) !== before;
+  } catch (_) { /* offline or not configured: keep what we have */ }
+  if (!store.get("sdh_seen", null)) markSeen();
+  if (first || changed) refresh();
+}
 window.addEventListener("hashchange", route);
-route();
+if (cloudOn() && !cached.length) { app.innerHTML = '<div class="loader"><div class="spin" aria-label="Loading"></div></div>'; loadCloud(true); }
+else { route(); if (cloudOn()) loadCloud(); }
 
 </script>
 </body>
