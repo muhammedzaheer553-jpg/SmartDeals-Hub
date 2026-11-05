@@ -350,7 +350,7 @@ const SITE = {
   formEndpoint: "",                // newsletter / alerts form URL (e.g. Formspree). Empty = newsletter is hidden
   contactEndpoint: "",             // contact form URL. Empty = the form opens the visitor's email app
   showPrices: false,               // false = hide every price and discount (safe until you have verified, permitted price data)
-  showDemoProducts: false,         // demo products hide automatically once a real product exists; true keeps them
+  showDemoProducts: true,         // demo products hide automatically once a real product exists; true keeps them
   gaId: "",                        // Google Analytics 4 ID, e.g. "G-XXXXXXXXXX". Empty = no analytics
   googleVerification: "",          // Search Console HTML-tag code (only the content value). Empty = none
   supabaseUrl: "",                 // e.g. "https://abcdxyz.supabase.co". Empty = products come from this file only
@@ -371,42 +371,36 @@ const CATEGORIES = [
 ];
 
 const PRODUCTS = [
-  { id: 1, name: "Demo Wireless Headphones", brand: "SampleBrand", category: "Electronics", image: "",
-    description: "Over-ear Bluetooth headphones with deep bass.", features: ["Bluetooth 5.0", "30-hour battery", "Foldable design"],
-    price: 2999, originalPrice: 4999, rating: 4.3, url: "", featured: true, trending: true, added: "2026-10-01", sample: true },
-  { id: 2, name: "Demo Smartphone 128GB", brand: "SampleMobile", category: "Mobiles & Accessories", image: "",
-    description: "Dual-camera smartphone with a large AMOLED display.", features: ["6.5-inch display", "5000 mAh battery", "128GB storage"],
-    price: 14999, originalPrice: 18999, rating: 4.2, url: "", featured: true, trending: true, added: "2026-10-05", editorChoice: true, sample: true },
-  { id: 3, name: "Demo Ultrabook 14-inch", brand: "SampleTech", category: "Computers & Laptops", image: "",
-    description: "Lightweight laptop for study and office work.", features: ["16GB RAM", "512GB SSD", "Backlit keyboard"],
-    price: 49990, originalPrice: 62990, rating: 4.4, url: "", featured: true, trending: false, added: "2026-10-08", editorChoice: true, sample: true },
-  { id: 4, name: "Demo Cotton Casual Shirt", brand: "SampleWear", category: "Fashion & Clothing", image: "",
-    description: "Breathable slim-fit cotton shirt for everyday wear.", features: ["100% cotton", "Slim fit", "Machine washable"],
-    price: 699, originalPrice: 1499, rating: 4.0, url: "", featured: false, trending: true, added: "2026-10-10", flash: true, sample: true },
-  { id: 5, name: "Demo Running Shoes", brand: "SampleSport", category: "Shoes & Watches", image: "",
-    description: "Cushioned running shoes with a grippy outsole.", features: ["Mesh upper", "Shock-absorbing sole", "Lightweight"],
-    price: 1799, originalPrice: 3299, rating: 4.1, url: "", featured: true, trending: false, added: "2026-10-12", flash: true, sample: true },
-  { id: 6, name: "Demo Non-Stick Cookware Set", brand: "SampleHome", category: "Home & Kitchen", image: "",
-    description: "3-piece non-stick set for daily cooking.", features: ["Induction base", "PFOA-free coating", "Cool-touch handles"],
-    price: 1599, originalPrice: 2999, rating: 4.2, url: "", featured: false, trending: true, added: "2026-10-14", flash: true, sample: true },
-  { id: 7, name: "Demo Vitamin C Face Serum", brand: "SampleGlow", category: "Beauty & Personal Care", image: "",
-    description: "Brightening serum for daily skincare.", features: ["30 ml bottle", "Non-greasy", "Dermatologically tested"],
-    price: 449, originalPrice: 799, rating: 4.1, url: "", featured: false, trending: false, added: "2026-10-16", sample: true },
-  { id: 8, name: "Demo Yoga Mat 6mm", brand: "SampleFit", category: "Sports & Fitness", image: "",
-    description: "Anti-slip yoga mat with carry strap.", features: ["6mm thick", "Anti-slip texture", "Easy to clean"],
-    price: 599, originalPrice: 1199, rating: 4.3, url: "", featured: true, trending: true, added: "2026-10-18", editorChoice: true, sample: true },
-  { id: 9, name: "Demo Productivity Notebook Set", brand: "SamplePaper", category: "Books & Stationery", image: "",
-    description: "Pack of 3 ruled notebooks with hard covers.", features: ["200 pages each", "Thick paper", "Hard cover"],
-    price: 349, originalPrice: 499, rating: 4.5, url: "", featured: false, trending: false, added: "2026-10-20", editorChoice: true, sample: true },
-  { id: 10, name: "Demo Wireless Gaming Mouse", brand: "SampleGear", category: "Gaming & Accessories", image: "",
-    description: "Ergonomic wireless mouse with adjustable DPI.", features: ["Up to 12000 DPI", "RGB lighting", "Rechargeable"],
-    price: 1299, originalPrice: 2499, rating: 4.4, url: "", featured: true, trending: true, added: "2026-10-22", flash: true, editorChoice: true, sample: true },
-  { id: 11, name: "Demo Smartwatch", brand: "SampleTime", category: "Shoes & Watches", image: "",
-    description: "Fitness smartwatch with heart-rate tracking.", features: ["1.7-inch display", "7-day battery", "Water resistant"],
-    price: 1999, originalPrice: 3999, rating: 4.0, url: "", featured: false, trending: true, added: "2026-10-25", sample: true },
-  { id: 12, name: "Demo Portable Bluetooth Speaker", brand: "SampleBrand", category: "Electronics", image: "",
-    description: "Compact speaker with clear sound and bass boost.", features: ["12-hour playtime", "Splash proof", "USB-C charging"],
-    price: 1499, originalPrice: 2499, rating: 4.2, url: "", featured: false, trending: false, added: "2026-10-28", sample: true }
+  { id: 101, name: "boAt Rockerz Bluetooth Headphones", brand: "boAt", category: "Electronics", image: "",
+    description: "Search Amazon India for the current Rockerz headphone models and offers.", features: ["Bluetooth headphones", "Multiple models available", "Check current seller and warranty"],
+    price: 0, originalPrice: 0, rating: 0, url: "https://www.amazon.in/s?k=boAt+Rockerz+headphones", featured: true, trending: true, added: "2026-11-05", sample: true },
+  { id: 102, name: "Samsung Galaxy Smartphone", brand: "Samsung", category: "Mobiles & Accessories", image: "",
+    description: "Browse current Samsung Galaxy phones and available configurations on Amazon India.", features: ["Multiple storage options", "Compare model generations", "Check seller and warranty"],
+    price: 0, originalPrice: 0, rating: 0, url: "https://www.amazon.in/s?k=Samsung+Galaxy+smartphone", featured: true, trending: true, added: "2026-11-05", sample: true },
+  { id: 103, name: "HP Laptop", brand: "HP", category: "Computers & Laptops", image: "",
+    description: "Browse HP laptops and compare RAM, SSD, processor and warranty.", features: ["Study and office options", "Compare specifications", "Check warranty details"],
+    price: 0, originalPrice: 0, rating: 0, url: "https://www.amazon.in/s?k=HP+laptop", featured: true, trending: false, added: "2026-11-05", sample: true },
+  { id: 104, name: "Men's Casual Shirts", brand: "Multiple brands", category: "Fashion & Clothing", image: "",
+    description: "Browse casual shirts and check size charts, fabric and return eligibility.", features: ["Different fits", "Size charts", "Check return policy"],
+    price: 0, originalPrice: 0, rating: 0, url: "https://www.amazon.in/s?k=men+casual+shirt", featured: false, trending: true, added: "2026-11-05", sample: true },
+  { id: 105, name: "Running Shoes", brand: "Multiple brands", category: "Shoes & Watches", image: "",
+    description: "Browse running shoes and compare fit, cushioning and reviews.", features: ["Multiple brands", "Compare sizes", "Check return policy"],
+    price: 0, originalPrice: 0, rating: 0, url: "https://www.amazon.in/s?k=running+shoes", featured: true, trending: false, added: "2026-11-05", sample: true },
+  { id: 106, name: "Prestige Pressure Cooker", brand: "Prestige", category: "Home & Kitchen", image: "",
+    description: "Browse Prestige pressure cookers and confirm capacity and model.", features: ["Multiple capacities", "Compare models", "Check warranty"],
+    price: 0, originalPrice: 0, rating: 0, url: "https://www.amazon.in/s?k=Prestige+pressure+cooker", featured: true, trending: true, added: "2026-11-05", sample: true },
+  { id: 107, name: "Minimalist Skincare", brand: "Minimalist", category: "Beauty & Personal Care", image: "",
+    description: "Browse Minimalist skincare products and check ingredients for each item.", features: ["Ingredient lists", "Different formulations", "Check product suitability"],
+    price: 0, originalPrice: 0, rating: 0, url: "https://www.amazon.in/s?k=Minimalist+skincare", featured: false, trending: true, added: "2026-11-05", sample: true },
+  { id: 108, name: "Yoga Mat", brand: "Multiple brands", category: "Sports & Fitness", image: "",
+    description: "Browse yoga mats and compare thickness, grip and material.", features: ["Different thicknesses", "Compare grip", "Check material"],
+    price: 0, originalPrice: 0, rating: 0, url: "https://www.amazon.in/s?k=yoga+mat", featured: false, trending: false, added: "2026-11-05", sample: true },
+  { id: 109, name: "Popular English Books", brand: "Various publishers", category: "Books & Stationery", image: "",
+    description: "Browse books and check editions, publisher and language.", features: ["Paperback and hardcover", "Check edition", "Compare sellers"],
+    price: 0, originalPrice: 0, rating: 0, url: "https://www.amazon.in/s?k=popular+books", featured: true, trending: false, added: "2026-11-05", sample: true },
+  { id: 110, name: "Gaming Controller", brand: "Multiple brands", category: "Gaming & Accessories", image: "",
+    description: "Browse gaming controllers and verify platform compatibility.", features: ["Check console compatibility", "Compare wired/wireless", "Check warranty"],
+    price: 0, originalPrice: 0, rating: 0, url: "https://www.amazon.in/s?k=gaming+controller", featured: false, trending: true, added: "2026-11-05", sample: true }
 ];
 
 </script>
